@@ -18,10 +18,10 @@ def args_parser():
 
     # Simulation args
     parser.add_argument("--num-steps", type=int, default=30, help="number of FL rounds")
-    parser.add_argument("--num-nodes", type=int, default=20, help="number of simulated nodes (n clients)")
+    parser.add_argument("--num-nodes", type=int, default=23, help="number of simulated nodes (n clients)")
     
     # Data args
-    parser.add_argument("--data-path", type=str, default="data/REFIT", help="dir path")
+    parser.add_argument("--data-path", type=str, default="data/IRISE", help="dir path")
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--input-size", type=int, default=24*6)
     parser.add_argument("--forecast-horizon", type=int, default=24)
@@ -51,6 +51,7 @@ def args_parser():
     parser.add_argument("--L1Loss", type=str2bool, default=True)
     parser.add_argument("--decompose", type=str2bool, default=False)
     parser.add_argument("--eval-every", type=int, default=10, help="eval the forecasting model every X selected epochs")
+    parser.add_argument("--weights_folder", type=str, default="weights_irise", help="dir path for saving model weights")
 
     # FEDORA args
     parser.add_argument("--n-hidden", type=int, default=3, help="num. hidden layers")
@@ -66,7 +67,7 @@ def args_parser():
 
     # General args
     parser.add_argument("--gpu", type=int, default=0, help="gpu device ID")
-    parser.add_argument("--save-path", type=str, default="results.csv", help="dir path for output file")
+    parser.add_argument("--save-path", type=str, default="results_irise.csv", help="dir path for output file")
     parser.add_argument("--seed", type=int, default=0, help="seed value")
     parser.add_argument("--fl-eval-every-round", type=int, default=1, help="eval the FL client pool every X selected epochs")
 

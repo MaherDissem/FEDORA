@@ -123,9 +123,8 @@ class FLocalUpdateFEDORA:
         self.L1Loss = args.L1Loss
         self.decompose = args.decompose
 
-        weights_folder = "weights"
-        os.makedirs(weights_folder, exist_ok=True)
-        self.checkpoint_path = os.path.join(weights_folder, f"checkpoint_{node_id}.pt")
+        os.makedirs(args.weights_folder, exist_ok=True)
+        self.checkpoint_path = os.path.join(args.weights_folder, f"checkpoint_{node_id}.pt")
 
         self.early_stopping = EarlyStopping(
             patience=self.patience,
