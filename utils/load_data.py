@@ -116,7 +116,7 @@ class BaseNodes_load:
         self.n_nodes = n_nodes
         self.batch_size = batch_size
 
-        dataset_files = glob.glob(os.path.join(self.data_path, "*.csv"))[:n_nodes]
+        dataset_files = [file for ext in ('csv', 'xls') for file in glob.glob(os.path.join(self.data_path, f"*.{ext}"))][:n_nodes]
         self.train_loaders, self.val_loaders, self.test_loaders = [], [], []
         for dataset_file in dataset_files:
             train_loader, val_loader, test_loader, _, _ = get_client_data(
